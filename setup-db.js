@@ -1,9 +1,11 @@
 import { Client, Databases, Permission, Role } from 'node-appwrite';
 
-const APPWRITE_ENDPOINT = 'https://fra.cloud.appwrite.io/v1';
-const APPWRITE_PROJECT_ID = '6a8165dd0023d21b0a97';
-const APPWRITE_DATABASE_ID = '6a816af900117d074103';
-const APPWRITE_COLLECTION_ID = 'user_profiles';
+import 'dotenv/config';
+
+const APPWRITE_ENDPOINT = process.env.VITE_APPWRITE_ENDPOINT || 'https://fra.cloud.appwrite.io/v1';
+const APPWRITE_PROJECT_ID = process.env.VITE_APPWRITE_PROJECT_ID || '6a8165dd0023d21b0a97';
+const APPWRITE_DATABASE_ID = process.env.VITE_APPWRITE_DATABASE_ID || '6a816af900117d074103';
+const APPWRITE_COLLECTION_ID = process.env.VITE_APPWRITE_COLLECTION_ID || 'user_profiles';
 
 async function setup() {
     const API_KEY = process.argv[2];

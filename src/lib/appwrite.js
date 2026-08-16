@@ -1,9 +1,9 @@
 import { Client, Account, Databases, ID, Permission, Role } from 'appwrite';
 
-export const APPWRITE_ENDPOINT = 'https://fra.cloud.appwrite.io/v1';
-export const APPWRITE_PROJECT_ID = '6a8165dd0023d21b0a97';
-export const APPWRITE_DATABASE_ID = '6a816af900117d074103';
-export const APPWRITE_COLLECTION_ID = 'user_profiles';
+export const APPWRITE_ENDPOINT = import.meta.env.VITE_APPWRITE_ENDPOINT;
+export const APPWRITE_PROJECT_ID = import.meta.env.VITE_APPWRITE_PROJECT_ID;
+export const APPWRITE_DATABASE_ID = import.meta.env.VITE_APPWRITE_DATABASE_ID;
+export const APPWRITE_COLLECTION_ID = import.meta.env.VITE_APPWRITE_COLLECTION_ID;
 
 const client = new Client();
 client
