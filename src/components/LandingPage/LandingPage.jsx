@@ -157,7 +157,7 @@ export function LandingPage({ onLoginSuccess }) {
         >
           <div className={styles.badge}>
             <Sparkles size={14} style={{ display: 'inline', marginRight: '6px', verticalAlign: 'middle' }} />
-            Premium Access Only
+            Top Company Questions
           </div>
           <h1 className={styles.title}>Master Your Next<br />Tech Interview.</h1>
           <p className={styles.subtitle}>
