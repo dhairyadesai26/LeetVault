@@ -152,9 +152,90 @@
   font-size: 20px;
   color: #a1a1aa;
   line-height: 1.6;
-  margin-bottom: 48px;
+  margin-bottom: 32px;
   max-width: 640px;
   font-weight: 400;
+}
+
+.faangContainer {
+  position: relative;
+  margin: 20px auto 40px auto;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  max-width: 400px;
+}
+
+.faangContainer::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 140%;
+  height: 140%;
+  transform: translate(-50%, -50%);
+  background: radial-gradient(circle, rgba(99, 102, 241, 0.15) 0%, rgba(168, 85, 247, 0.05) 40%, transparent 70%);
+  pointer-events: none;
+  z-index: 0;
+  border-radius: 50%;
+  animation: pulseAura 4s infinite alternate ease-in-out;
+}
+
+@keyframes pulseAura {
+  0% { transform: translate(-50%, -50%) scale(0.9); opacity: 0.6; }
+  100% { transform: translate(-50%, -50%) scale(1.1); opacity: 1; }
+}
+
+.faangText {
+  position: relative;
+  z-index: 1;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 4px;
+  font-weight: 700;
+  background: linear-gradient(90deg, #6366f1, #a855f7, #ec4899);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  opacity: 0.9;
+  margin: 0;
+}
+
+.faangLogosRow {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  padding: 12px 24px;
+  border-radius: 20px;
+  background: rgba(0, 0, 0, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.faangIcon {
+  width: 44px;
+  height: 44px;
+  transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), filter 0.3s;
+  filter: drop-shadow(0 4px 8px rgba(0,0,0,0.4)) saturate(0.8);
+}
+
+.faangContainer:hover .faangLogosRow {
+  transform: translateY(-4px) scale(1.05);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  background: rgba(0, 0, 0, 0.3);
+}
+
+.faangContainer:hover .faangIcon {
+  filter: drop-shadow(0 8px 16px rgba(0,0,0,0.5)) saturate(1.2);
+}
+
+.faangIcon:hover {
+  transform: scale(1.2) translateY(-4px) !important;
 }
 
 /* --- Premium Shimmering Button --- */
