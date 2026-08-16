@@ -1,8 +1,9 @@
 import { Client, Account } from 'appwrite';
+import 'dotenv/config';
 
 const client = new Client()
-    .setEndpoint('https://fra.cloud.appwrite.io/v1')
-    .setProject('6a8165dd0023d21b0a97');
+    .setEndpoint(process.env.VITE_APPWRITE_ENDPOINT)
+    .setProject(process.env.VITE_APPWRITE_PROJECT_ID);
 
 const account = new Account(client);
 
