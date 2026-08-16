@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { account, ID } from '../../lib/appwrite';
 import styles from './LandingPage.module.css';
 import { Building2, Code2, TrendingUp, Sparkles, Terminal, GitBranch } from 'lucide-react';
+import DATA from '../../data.json';
 
 const COMPANIES = [
   "Google", "Amazon", "Meta", "Apple", "Netflix", "Microsoft",
@@ -22,6 +23,16 @@ export function LandingPage({ onLoginSuccess }) {
   const [otpStep, setOtpStep] = useState(false);
   const [otp, setOtp] = useState('');
   const [challengeId, setChallengeId] = useState('');
+
+  const uniqueCount = React.useMemo(() => {
+    const ids = new Set();
+    for (const compQs of Object.values(DATA.QUESTIONS)) {
+      for (const q of compQs) {
+        ids.add(q.id);
+      }
+    }
+    return ids.size;
+  }, []);
 
   // Handle email verification if returning from magic link
   React.useEffect(() => {
@@ -150,7 +161,7 @@ export function LandingPage({ onLoginSuccess }) {
           </div>
           <h1 className={styles.title}>Master Your Next<br />Tech Interview.</h1>
           <p className={styles.subtitle}>
-            Unlock 17,000+ exclusive company-wise interview questions. Track your progress, bookmark hard problems, and get hired faster at top tech giants.
+            Unlock {uniqueCount.toLocaleString()}+ exclusive company-wise interview questions. Track your progress, bookmark hard problems, and get hired faster at top tech giants.
           </p>
           <button
             className={styles.getStartedBtn}
